@@ -1,0 +1,25 @@
+###
+# @name Basic
+GET http://localhost:4004/odata/v4/bookshop
+
+###
+# @name BooksQuery
+POST http://localhost:4004/odata/v4/bookshop/Books
+Content-Type: application/json
+
+{
+  "title": "birds are sing Restaurant At The End Of The Universe"
+}
+
+###
+# @name BooksQuery
+GET http://localhost:4004/odata/v4/bookshop/Books
+
+###
+# @name DeleteOperation
+@book_ID = {{ BooksQuery.response.body.value[0].ID }}
+
+GET http://localhost:4004/odata/v4/bookshop/Books({{book_ID}})
+
+###
+DELETE http://localhost:4004/odata/v4/bookshop/Books({{book_ID}})
