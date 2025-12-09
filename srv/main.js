@@ -25,7 +25,7 @@ module.exports = cds.service.impl(function () {
       .columns`stock * price as stockValue`
       .from(Books)
       .where({ ID });
-      debugger
+ 
 
     return { value: result?.stockValue ?? null };
   });
